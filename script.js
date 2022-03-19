@@ -3,8 +3,14 @@ let id = 1;
 let editId = null;
 
 function addTodo(){
+    var todo = document.getElementById("input-todo").value;
+    if (todo.length == 0) {
+        alert("Please enter a todo");
+        return;
+    }
+
+    
     if (editId == null) {
-        var todo = document.getElementById("input-todo").value;
         
         // create a new <tr>
         var newTodo = document.createElement("tr");
@@ -36,7 +42,6 @@ function addTodo(){
         id = id + 1;
         document.getElementById("input-todo").value = "";
     } else {
-        var todo = document.getElementById("input-todo").value;
         var todoElm = document.getElementById("todoname-" + editId);
         todoElm.innerText = todo;
         document.getElementById("input-todo").value = "";
